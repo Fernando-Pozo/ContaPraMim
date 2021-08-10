@@ -11,6 +11,7 @@ public class imposto {
 		double salario;
 	
 		PessoaFisica Pf = new PessoaFisica();
+		CalculoImposto calculo = new CalculoImposto();
 		
 		
 		System.out.println("----------------------------------");
@@ -37,13 +38,18 @@ public class imposto {
 			if(salario < (1903.98*12)) {
 				System.out.println(Pf.getNome() + " voce esta isento de pagar imposto de renda neste ano");
 			}else if (salario >= (1903.98*12) && salario < (2826.65*12) ) {
-			
+			  calculo.calcimposto(salario);
+			  System.out.println("Voce devera pagar 7.5% de imposto de renda");
+			  System.out.println("Valor da tributação :" + calculo.getResultado());
 			}else if (salario >= (2826.65*12) && salario < (3751.05*12)) {
-				
+				  System.out.println("Voce devera pagar 15% de imposto de renda");
+				  System.out.println("Valor da tributação :" + calculo.getResultado15());
 			}else if (salario >= (3751.05*12) &&  salario < (4664.68*12)) {
-				
+				  System.out.println("Voce devera pagar 22.5% de imposto de renda");
+				  System.out.println("Valor da tributação :" + calculo.getResultado225());
 			}else if (salario > (4664.68*12)) {
-				
+				  System.out.println("Voce devera pagar 27% de imposto de renda");
+				  System.out.println("Valor da tributação :" + calculo.getResultado275());
 			}
 			
 		}else if(opcao == 2) {
