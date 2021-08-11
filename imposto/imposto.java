@@ -10,7 +10,7 @@ public class imposto {
 		
 		String nome, cpf, cnpj;
 		int idade, opcao;
-		double salario, renda;
+		double salario, renda, resto;
 		
 		PessoaJuridica pj = new PessoaJuridica();
 		PessoaFisica Pf = new PessoaFisica();
@@ -101,11 +101,15 @@ public class imposto {
 					
 				}
 					else if (renda > 20000.00) {
-					
-					 calculo.calcMensal25(renda);
-					 System.out.println(pj.getNome() + " devera pagar 25% de imposto de renda");
-					 System.out.println("Valor da tributação referente a 1 mes é de :" + calculo.getResultado25pj());
 						
+					 resto = renda - 20000.00;
+					 renda = renda - resto;
+					 calculo.calcMensal15(renda);
+					 calculo.calcMensal25(resto);
+					 System.out.println(pj.getNome() + " devera pagar 15% de imposto sobre os 20.000 e mais 10% sobre o excesso");
+					 System.out.println("O valor da tributação referente aos 15% é de : " + calculo.getResultado15pj());
+					 System.out.println("O valor da tributação referente aos 10% excedentes é de : " + calculo.getResultado25pj());
+					 System.out.println("O valor total de IRPJ é de : " + (calculo.getResultado15pj() + calculo.getResultado25pj()));	
 					}
 				}
 				else if (opcao == 2) {
@@ -116,9 +120,15 @@ public class imposto {
 						System.out.println("Valor da tributação referente a 3 meses é de :" + calculo.getTrimestral15());
 							}
 					else if (renda >= (20000.00*3)) {
-						calculo.calcTrimestral25(renda);
-						System.out.println(pj.getNome() + " devera pagar 25% de imposto de renda");
-						System.out.println("Valor da tributação :" + calculo.getTrimestral25());					
+						resto = renda - 20000*3;
+						renda = renda - resto;
+						calculo.calcTrimestral15(renda);
+						calculo.calcTrimestral25(resto);
+						 System.out.println(pj.getNome() + " devera pagar 15% de imposto sobre os 60.000 e mais 10% sobre o excesso");
+						 System.out.println("O valor da tributação referente aos 15% é de : " + calculo.getTrimestral15());
+						 System.out.println("O valor da tributação referente aos 10% excedentes é de : " + calculo.getTrimestral25());
+						 System.out.println("O valor total de IRPJ é de : " + (calculo.getTrimestral15() + calculo.getTrimestral25()));	
+							
 							}
 						}
 				else if (opcao == 3) {
@@ -129,9 +139,16 @@ public class imposto {
 						System.out.println("Valor da tributação referente a 1 é de :" + calculo.getAnual15());
 							}
 					else if (renda >= (20000.00*12)) {
-						calculo.calcAnual25(renda);
-						System.out.println(pj.getNome() + " devera pagar 25% de imposto de renda");
-						System.out.println("Valor da tributação :" + calculo.getAnual25());					
+						resto = renda - 20000.00*12;
+						renda = renda - resto;
+						calculo.calcAnual15(renda);
+						calculo.calcAnual25(resto);
+						System.out.println(pj.getNome() + " devera pagar 15% de imposto sobre os 240.000.000 e mais 10% sobre o excesso");
+						System.out.println("O valor da tributação referente aos 15% é de : " + calculo.getAnual15());
+						System.out.println("O valor da tributação referente aos 10% excedentes é de : " + calculo.getAnual25());
+						System.out.println("O valor total de IRPJ é de : " + (calculo.getAnual15() + calculo.getAnual25()));	
+							
+					
 							}
 				}
 				

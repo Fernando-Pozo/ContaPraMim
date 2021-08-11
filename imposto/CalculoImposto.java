@@ -80,8 +80,8 @@ public class CalculoImposto {
 			
 			
 			
-			public double calcMensal25 (double renda ) {
-				resultado25pj = renda*0.25;
+			public double calcMensal25 (double resto ) {
+				resultado25pj = resto*0.10;
 				
 				return resultado25pj;
 				
@@ -101,25 +101,25 @@ public class CalculoImposto {
 				return tri15pj;
 				}
 			
-			public void setTrimestral15(double resultado15pj) {
-				this.tri15pj = resultado15pj;
+			public void setTrimestral15(double trimestral15pj) {
+				this.tri15pj = trimestral15pj;
 				}	
 					public double getTrimestral15() {
 						return tri15pj;
 					}
 			
 			
-			public double calcTrimestral25 (double renda ) {
-				tri25pj = renda*0.25;
+			public double calcTrimestral25 (double resto ) {
+				tri25pj = resto*0.10;
 							
 				return tri25pj;
 				}
 					
-			public void setTrimestral25(double resultado25pj) {
-				this.tri25pj = resultado25pj;
+			public void setTrimestral25(double trimestral25pj) {
+				this.tri25pj = trimestral25pj;
 				}	
 					public double getTrimestral25() {
-						return resultado25pj;
+						return tri25pj;
 					}
 					public double calcAnual15 (double renda ) {
 						anual15pj = renda*0.15;
@@ -134,8 +134,8 @@ public class CalculoImposto {
 								return anual15pj;
 							}
 					
-					public double calcAnual25 (double renda ) {
-						anual25pj = renda*0.25;
+					public double calcAnual25 (double resto ) {
+						anual25pj = resto*0.10;
 											
 						return anual25pj;
 						}
